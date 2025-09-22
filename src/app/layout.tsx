@@ -9,6 +9,7 @@ import {
   UserButton,
 } from '@clerk/nextjs'
 import { ThemeProvider } from '../components/ThemeProvider'
+import { Toaster } from 'react-hot-toast'
 
 import "./globals.css";
 import Nav from "@/components/Nav";
@@ -55,7 +56,7 @@ export default function RootLayout({
                 {children}
               </main>
             </div>
-
+            <Toaster />
 
           </ThemeProvider>
 

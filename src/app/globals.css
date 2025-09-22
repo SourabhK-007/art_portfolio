@@ -6,6 +6,8 @@
   .text-balance {
     text-wrap: balance;
   }
+
+
 }
 
 .clip-chamfer-bl {
@@ -97,7 +99,7 @@
 
 @layer utilities {
   .hero-heading {
-    @apply uppercase font-black text-2xl sm:right-10 sm:text-5xl md:text-6xl lg:text-[10rem];
+    @apply font-black text-2xl sm:right-10 sm:text-5xl md:text-6xl lg:text-[10rem];
   }
 
   .text-stroke {
@@ -110,35 +112,84 @@
     color: transparent;
     /* only outline, no fill */
   }
-  
-.top-grid {
-  @apply grid grid-cols-1 xl:grid-cols-12 gap-5 mb-5 md:px-0 px-5;
 
-  >div {
-    @apply rounded-3xl overflow-hidden h-72 relative;
+  .top-grid {
+    @apply grid grid-cols-1 xl:grid-cols-12 gap-5 mb-5 md:px-0 px-5;
+
+    >div {
+      @apply rounded-3xl overflow-hidden h-72 relative;
+    }
+
+    img {
+      @apply object-cover w-full h-full;
+    }
   }
 
-  img {
-    @apply object-cover w-full h-full;
+  .bottom-grid {
+    @apply grid grid-cols-1 md:grid-cols-12 gap-5 md:px-0 px-5;
+
+    >div {
+      @apply rounded-3xl overflow-hidden h-72 relative;
+    }
+
+    img {
+      @apply object-cover w-full h-full;
+    }
   }
+
+  .masked-img {
+    mask-image: url("/images/person_mask.png");
+    -webkit-mask-image: url("/images/person_mask.png");
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-position: center;
+    mask-size: 20%;
+    -webkit-mask-size: 20%;
+  }
+
+  .masked-img-2 {
+    mask-image: url("/images/mountain.png");
+    -webkit-mask-image: url("/images/mountain.png");
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-position: center;
+    mask-size: 50%;
+    -webkit-mask-size: 50%;
+  }
+    .masked-img-3 {
+    mask-image: url("/images/yinyang.png");
+    -webkit-mask-image: url("/images/yinyang.png");
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-position: center;
+    mask-size: 25%;
+    -webkit-mask-size: 25%;
+  }
+
 }
 
-.bottom-grid {
-  @apply grid grid-cols-1 md:grid-cols-12 gap-5 md:px-0 px-5;
-
-  >div {
-    @apply rounded-3xl overflow-hidden h-72 relative;
+@layer components {
+  .masked-container {
+    @apply relative h-[70vh] w-full mt-2;
+  }
+  #masked-content {
+    @apply relative opacity-0;
   }
 
-  img {
-    @apply object-cover w-full h-full;
+  .cocktail-img {
+    @apply  md:w-[60vw] w-full h-[50vh] md:h-[70vh] rounded-3xl overflow-hidden absolute top-0 md:top-1/2 md:-translate-y-1/2 left-1/2 -translate-x-1/2;
   }
-}
-
-
 }
 
 @font-face {
-  font-family: "Modern Negra";
+  font-family: "ModernNegra";
   src: url("/fonts/Modern Negra Demo.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "PirateOne";
+  src: url("/fonts/PirataOne-Regular.ttf") format("truetype");
 }

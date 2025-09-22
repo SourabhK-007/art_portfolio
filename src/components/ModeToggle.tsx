@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 
 export default function ModeToggle() {
     const { theme, setTheme } = useTheme();
-    console.log("Toggling")
+  
     return (
         <Button
             variant="outline"
