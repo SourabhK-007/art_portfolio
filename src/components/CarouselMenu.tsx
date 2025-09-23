@@ -16,7 +16,7 @@ const CarouselMenu = () => {
         async function fetchPosts() {
             const res = await getPostsByType(artType); // calls server action
             setPosts(res);
-            console.log(res);
+            // console.log(res);
 
         }
         fetchPosts();
@@ -26,8 +26,8 @@ const CarouselMenu = () => {
 
     console.log("Art type", artType);
     return (
-        <div className='w-screen flex flex-col justify-center items-center '>
-            <div className="flex justify-center my-20">
+        <div className='w-screen flex flex-col justify-center items-center gap-10'>
+            <div className="flex justify-center ">
                 <h1 className="font-pirate text-5xl text-center">
                     A Glimpse of My Art Categories
                 </h1>
@@ -35,7 +35,7 @@ const CarouselMenu = () => {
             {/* category tabs*/}
             <div className='flex justify-center '>
                 <Tabs value={artType} defaultValue='portrait' onValueChange={setArtType} className='w-[300px]'>
-                    <TabsList className="grid grid-cols-3 w-full mb-10">
+                    <TabsList className="grid grid-cols-3 w-full ">
                         <TabsTrigger value="portrait">Portrait</TabsTrigger>
                         <TabsTrigger value="landscapes">Landscape</TabsTrigger>
                         <TabsTrigger value="negative">Negative</TabsTrigger>
@@ -84,8 +84,6 @@ const CarouselMenu = () => {
                     ))}
                 </div>
             </div>
-
-
         </div>
     )
 }

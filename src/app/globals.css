@@ -170,10 +170,19 @@
   }
 
 }
+/* Hide scrollbar but keep scrolling */
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE + Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
 
 @layer components {
   .masked-container {
-    @apply relative h-[70vh] w-full mt-2;
+    @apply relative h-[70vh] w-full;
   }
   #masked-content {
     @apply relative opacity-0;

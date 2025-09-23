@@ -2,10 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useMediaQuery } from 'react-responsive';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap'
-import Image from 'next/image';
-import rajani from '../../public/images/rajani.png';
-import { getPosts } from '@/actions/post.action';
-import { Dialog, DialogContent, DialogTrigger } from './ui/dialog';
+
 import quotes from '../quotes.json'
 const Categories = ({ maskedImg, mainImg, type }: { maskedImg: string, mainImg: string, type: string }) => {
     const [title, setTitle] = useState("");
@@ -53,7 +50,7 @@ const Categories = ({ maskedImg, mainImg, type }: { maskedImg: string, mainImg: 
     }, [])
 
     return (
-        <div id="art" className="flex flex-col justify-center ">
+        <div id="art" className="flex flex-col justify-center  ">
             {/* <h1>categories</h1> */}
 
             <div className=' masked-container'>
@@ -68,8 +65,8 @@ const Categories = ({ maskedImg, mainImg, type }: { maskedImg: string, mainImg: 
             </div>
             <div id='masked-content'>
                 {/* <h2 className='will-fade'>Sip-Worthy Perfection</h2> */}
-                <div className='text-center font-pirate pt-10 pb-10'>
-                    <h3 className='text-4xl'>{title}</h3>
+                <div className='text-center font-pirate pt-2 pb-10'>
+                    <h3 className='text-5xl'>{title}</h3>
                     <p className='text-2xl'>{quote}</p>
                 </div>
             </div>

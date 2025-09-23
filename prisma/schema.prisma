@@ -27,6 +27,15 @@ model Post {
   id        String   @id @default(cuid())
   type      String?
   name      String?
-  imageUrl       String?
+  imageUrl  String?
   createdAt DateTime @default(now())
+}
+
+model Testimony {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  fullname  String
+  textimony String
+  email     String
+  imgUrl    String
 }

@@ -8,7 +8,9 @@ import Art from "@/components/Art";
 import { auth, currentUser } from "@clerk/nextjs/server";
 import { getClerkUserId } from "@/actions/auth";
 import CarouselMenu from "@/components/CarouselMenu";
-import StickyVideo from "@/components/StickyVideo";
+import StickyVideo from "@/components/Testimonials";
+import Testimonials from "@/components/Testimonials";
+import Footer from "@/components/Footer";
 
 
 
@@ -23,9 +25,9 @@ export default async function Home() {
      
       <Hero />
       <Art />
-   
       <CarouselMenu />
-      
+      <Testimonials/>
+      <Footer/>
  
     </div>
 
