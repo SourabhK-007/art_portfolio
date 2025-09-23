@@ -17,16 +17,30 @@ export async function createTestimony(name: string, email: string, context: stri
     }
 }
 
-export async function getAllTestimony(){
+export async function getAllTestimony() {
     try {
         const testimonies = await prisma.testimony.findMany({
-            orderBy:{
-                    createdAt:"desc"
+            orderBy: {
+                createdAt: "desc"
             }
         })
         // console.log(testimonies)
-          return { success: true, testimonies }
+        return { success: true, testimonies }
     } catch (err) {
         console.error("error fetching testimony ", err)
+    }
+}
+
+export async function checkTestimony(email: string) {
+    console.log("the email",email)
+    try {
+        const res = await prisma.testimony.findMany({
+            where: {
+                email: email
+            }
+        })
+        return {success:true,res}
+    } catch (err) {
+        console.log("error testing", err)
     }
 }

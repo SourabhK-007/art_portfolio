@@ -12,7 +12,7 @@ import { Textarea } from './ui/textarea';
 import { Button } from './ui/button';
 import { SignInButton, useUser } from '@clerk/nextjs';
 import { Fullscreen, LogInIcon } from 'lucide-react';
-import { createTestimony, getAllTestimony } from '@/actions/testimony';
+import { checkTestimony, createTestimony, getAllTestimony } from '@/actions/testimony';
 import { Testimony } from '@prisma/client';
 
 
@@ -25,6 +25,8 @@ const Testimonials = () => {
   const { theme } = useTheme()
   const [context, setContext] = useState("");
   const [testimonies, setTestimonies] = useState<any[]>([]);
+  const [hasSubmitted, setHasSubmitted] = useState(false);
+  const [submit, setSubmit] = useState(false);
 
 
   useEffect(() => {
@@ -32,24 +34,51 @@ const Testimonials = () => {
       const t = await getAllTestimony();
       setTestimonies(t?.testimonies ?? [])
     }
+
+    const checkUserTestimony = async () => {
+      if (!user?.emailAddresses?.[0]?.emailAddress) return;
+
+      const res = await checkTestimony(user.emailAddresses[0].emailAddress);
+      if (res?.success && res.res.length > 0) {
+        setHasSubmitted(true); // user already posted
+      }
+    };
+    console.log("has sumbitted", hasSubmitted);
     fetchTestimonies();
-  }, [])
+    checkUserTestimony();
+
+  }, [user])
+
 
 
   const handleSubmit = async () => {
+    if (!context.trim() || hasSubmitted) return;
+
+    setSubmit(true);
 
     try {
-      const res = await createTestimony(user?.fullName ?? "", user?.emailAddresses[0].emailAddress ?? "", context, user?.imageUrl ?? "")
-      if (res?.success) {
-        console.log(" Testimony created successfully")
-      }
-      console.log(res)
-    } catch (error) {
-      console.log("Error creating testimony", error)
-    }
-  }
+      const res = await createTestimony(
+        user?.fullName ?? "",
+        user?.emailAddresses?.[0]?.emailAddress ?? "",
+        context,
+        user?.imageUrl ?? ""
+      );
 
-  
+      if (res?.success) {
+        console.log("Testimony created successfully");
+        setHasSubmitted(true); // permanently disable button
+        setContext(""); // optional: clear textarea
+      } else {
+        setSubmit(false); // re-enable if failed
+      }
+    } catch (error) {
+      console.log("Error creating testimony", error);
+      setSubmit(false); // re-enable on error
+    }
+  };
+
+
+
   const mid = Math.floor(testimonies.length / 2);
   const f = testimonies.slice(0, mid);
   const s = testimonies.slice(mid);
@@ -132,8 +161,13 @@ const Testimonials = () => {
           />
           <div className='h-[100] flex flex-col justify-end '>
             {user ? (
-              <Button onClick={handleSubmit}>
-                Post
+
+              <Button
+                onClick={handleSubmit}
+                disabled={submit || hasSubmitted}
+                className={submit || hasSubmitted ? "opacity-50 cursor-not-allowed" : ""}
+              >
+                {hasSubmitted ? "Posted" : submit ? "Submitting..." : "Post"}
               </Button>
             ) : (
 
