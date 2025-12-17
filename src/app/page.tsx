@@ -11,11 +11,14 @@ import CarouselMenu from "@/components/CarouselMenu";
 import StickyVideo from "@/components/Testimonials";
 import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
+import { useState } from "react";
+import OverlayButton from "@/components/OverlayFilter";
 
 
 
 export default async function Home() {
   const a = await getClerkUserId();
+
   // console.log("userId",a[0]);
   // console.log("user",a[1]);
   // console.log("hey there")
@@ -25,7 +28,7 @@ export default async function Home() {
      
       <Hero />
       <Art />
-      <CarouselMenu />
+      <CarouselMenu/>
       <Testimonials/>
       <Footer/>
  

@@ -49,7 +49,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
 
-            <div className="min-h-screen">
+            <div className="min-h-screen w-full">
               <Nav />
               <main>
 

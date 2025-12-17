@@ -41,7 +41,7 @@ function Hero() {
   return (
     <div className="relative h-dvh w-screen overflow-hidden">
       <div className="absolute inset-0 flex items-end justify-center">
-        <div className="flex h-auto w-full max-w-full flex-col lg:flex-row gap-4 justify-around items-center lg:items-end p-4">
+        <div className="flex h-auto w-full max-w-full flex-col lg:flex-row gap-4 justify-around items-center lg:items-end py-4">
           {/* Wrapper to stack blue + yellow */}
           <div className="relative h-auto lg:h-[700px] w-full" ref={container}>
             {/* Blue block behind */}
@@ -51,7 +51,7 @@ function Hero() {
               </h1>
               <div className="flex flex-col sm:flex-row items-center justify-end sm:justify-end gap-4 w-full">
                 <p
-                  className={`font-moderna mt-4 lg:mt-40 text-xl sm:text-2xl md:text-3xl text-center sm:text-left 
+                  className={`font-moderna mt-4 lg:mt-40 text-[25px] sm:text-2xl md:text-3xl text-center sm:text-left 
                   ${theme === "dark" ? "text-purple-500" : "text-black"}`}
                 >
                   A collection of moments frozen in art <br />
@@ -78,7 +78,7 @@ function Hero() {
                 Kalavida&apos;s Atelier
               </h1>
               <div className="flex flex-col sm:flex-row items-center justify-end gap-4 w-full">
-                <p className="font-moderna text-white mt-4 lg:mt-40 text-xl sm:text-2xl md:text-3xl text-center sm:text-left">
+                <p className="font-moderna text-white mt-4 lg:mt-40 text-[25px] sm:text-2xl md:text-3xl text-center sm:text-left">
                   A collection of moments frozen in art <br />
                   <span className="block text-[16px] sm:text-[18px] md:text-[22px] max-w-[300px] sm:max-w-[400px]">
                     By Sourabh Karikatti

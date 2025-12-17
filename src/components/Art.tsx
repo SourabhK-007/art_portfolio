@@ -2,7 +2,7 @@ import ImageModal from "./ImageModel";
 
 function Art() {
   return (
-    <div className="relative min-h-screen w-screen overflow-hidden flex justify-center m-4 sm:m-6 md:m-10">
+    <div className="relative min-h-screen w-screen overflow-hidden flex justify-center sm:m-6 md:m-10">
       <div className="w-full md:w-[85%]">
         {/* Title */}
         <div className="flex justify-center p-6 md:p-10">
