@@ -39,7 +39,7 @@ function Hero() {
   );
 
   return (
-    <div className="relative h-dvh w-screen overflow-hidden">
+    <div className="relative h-dvh w-full overflow-hidden">
       <div className="absolute inset-0 flex items-end justify-center">
         <div className="flex h-auto w-full max-w-full flex-col lg:flex-row gap-4 justify-around items-center lg:items-end py-4">
           {/* Wrapper to stack blue + yellow */}

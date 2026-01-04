@@ -26,9 +26,8 @@ export default function ImageModal({ src, alt = "image", thumbClassName, name, t
           <Image
             src={src}
             alt={alt}
-            width={400}
-            height={500}
-            className={`cursor-pointer rounded-lg h-[230px] w-[400px] object-cover`}
+            fill
+            className="object-cover rounded-lg"
           />
           <p>{name}</p>
         </div>
@@ -36,7 +35,7 @@ export default function ImageModal({ src, alt = "image", thumbClassName, name, t
 
       </DialogTrigger>
       <DialogContent className={`p-0 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow-none 
-        flex justify-center items-center ${type ==='portrait'?"max-w-[38%]":"max-w-4xl"}`}>
+        flex justify-center items-center ${type === 'portrait' ? "max-w-[38%]" : "max-w-4xl"}`}>
         {src == null ? (
           <div>Null</div>
         ) : (
@@ -51,8 +50,8 @@ export default function ImageModal({ src, alt = "image", thumbClassName, name, t
               height={1000}
               onLoadingComplete={() => setLoading(false)}
               className={`rounded-lg object-contain ${type === "portrait"
-                  ? "max-w-[98%] max-h-[90%]"
-                  : " "
+                ? "max-w-[98%] max-h-[90%]"
+                : " "
                 }`}
             />
           </div>
